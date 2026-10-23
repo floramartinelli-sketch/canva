@@ -1,0 +1,305 @@
+<title>Carrossel CAN</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: coluna de cards 1080x1350 (4:5 Instagram) escalados para a tela; tema CAN escuro único */
+:root {
+  --bg: #0B1929;          /* fundo CAN */
+  --bg-2: #0E2A58;        /* gradiente escuro */
+  --brand: #1C55B1;       /* azul da marca */
+  --card: rgba(28, 73, 140, 0.28);
+  --line: rgba(255, 255, 255, 0.22);
+  --fg: #FFFFFF;
+  --fg-2: rgba(255, 255, 255, 0.80);
+  --fg-3: rgba(255, 255, 255, 0.55);
+  --blue: #5EBCFC;        /* destaque de texto */
+  --gold: #F5D68D;        /* destaque premium, com moderação */
+  --page: #050D17;        /* fundo da página de visualização */
+  --font: "Inter", Arial, Helvetica, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--page);
+  color: var(--fg);
+  font-family: var(--font);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 64px;
+}
+
+/* ---------- cabeçalho da página ---------- */
+.intro { max-width: 760px; margin: 0 auto 32px; }
+.intro h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; text-wrap: balance; }
+.intro p { color: var(--fg-2); font-size: 15px; line-height: 1.55; margin: 0; }
+.intro b { color: var(--blue); font-weight: 600; }
+
+.deck { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.slot { width: 100%; max-width: 540px; position: relative; }
+.slot-label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 8px; }
+.frame { width: 100%; aspect-ratio: 1080 / 1350; position: relative; overflow: hidden; border-radius: 6px; }
+.frame > .card { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+
+/* ---------- o card (1080 x 1350 px reais) ---------- */
+.card {
+  width: 1080px; height: 1350px;
+  padding: 88px 88px 72px;
+  display: flex; flex-direction: column;
+  background:
+    radial-gradient(1100px 800px at 100% 0%, rgba(28, 85, 177, 0.38), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg) 55%, var(--bg-2) 140%);
+  color: var(--fg);
+  font-family: var(--font);
+  position: relative;
+}
+[contenteditable]:focus { outline: 2px dashed var(--blue); outline-offset: 6px; border-radius: 4px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; }
+.who { display: flex; align-items: center; gap: 22px; }
+.avatar {
+  width: 92px; height: 92px; border-radius: 50%;
+  background: var(--brand); display: grid; place-items: center;
+  border: 2px solid rgba(94, 188, 252, 0.5);
+}
+.avatar svg { width: 50px; height: 50px; }
+.name { font-size: 32px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.name svg { width: 30px; height: 30px; }
+.handle { font-size: 26px; font-weight: 400; color: var(--fg-3); margin-top: 4px; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; }
+.logo svg { width: 34px; height: 34px; }
+
+.body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 40px; min-height: 0; }
+
+.eyebrow { font-size: 26px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.h-xl { font-size: 92px; line-height: 1.06; font-weight: 800; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+.h-lg { font-size: 70px; line-height: 1.1; font-weight: 700; letter-spacing: -0.025em; margin: 0; text-wrap: balance; }
+.h-md { font-size: 56px; line-height: 1.14; font-weight: 700; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.hl { color: var(--blue); }
+.gold { color: var(--gold); }
+.lead { font-size: 40px; line-height: 1.4; color: var(--fg-2); font-weight: 400; margin: 0; }
+.prose { display: flex; flex-direction: column; gap: 34px; }
+.prose p { font-size: 46px; line-height: 1.38; font-weight: 400; margin: 0; color: var(--fg); }
+.prose p strong { font-weight: 700; color: var(--blue); }
+.small { font-size: 30px; line-height: 1.45; color: var(--fg-3); margin: 0; }
+
+.big-number { font-size: 260px; line-height: .9; font-weight: 800; letter-spacing: -0.05em; color: var(--gold); }
+
+.box { background: var(--card); border: 2px solid var(--line); border-radius: 28px; padding: 44px 48px; }
+.box-blue { border-color: rgba(94, 188, 252, 0.7); }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.compare .box { display: flex; flex-direction: column; gap: 18px; }
+.compare .k { font-size: 30px; font-weight: 600; color: var(--fg-2); }
+.compare .v { font-size: 76px; font-weight: 800; letter-spacing: -0.03em; }
+.compare .d { font-size: 30px; color: var(--fg-3); line-height: 1.4; }
+.base { display: flex; justify-content: space-between; align-items: baseline; font-size: 32px; color: var(--fg-2); padding: 0 8px; }
+.base b { color: var(--fg); font-size: 40px; }
+
+.stack { display: flex; flex-direction: column; gap: 24px; }
+.stack .box { display: grid; grid-template-columns: 64px 1fr; gap: 28px; align-items: start; padding: 38px 44px; }
+.stack .n { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--blue); color: var(--blue); font-weight: 700; font-size: 30px; display: grid; place-items: center; }
+.stack p { margin: 0; font-size: 38px; line-height: 1.38; }
+.stack p strong { font-weight: 700; }
+
+.center { text-align: center; align-items: center; }
+.rule { width: 120px; height: 0; border-top: 4px dotted var(--gold); }
+
+.cta-row { display: flex; gap: 22px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 600; padding: 20px 30px; border-radius: 999px; border: 2px solid var(--line); background: var(--card); }
+.chip svg { width: 34px; height: 34px; }
+
+.bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 48px; }
+.dots { display: flex; gap: 10px; }
+.dots i { width: 14px; height: 14px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+.dots i.on { background: var(--blue); width: 44px; border-radius: 8px; }
+.swipe { font-size: 26px; font-weight: 500; color: var(--fg-3); display: flex; align-items: center; gap: 12px; }
+.swipe svg { width: 30px; height: 30px; }
+.chev { position: absolute; right: -40px; bottom: 260px; width: 340px; opacity: .14; pointer-events: none; }
+
+/* modo de exportação: cards em tamanho real, sem a moldura da página */
+body.raw { padding: 0; background: var(--bg); }
+body.raw .intro, body.raw .slot-label { display: none; }
+body.raw .deck { gap: 0; }
+body.raw .slot { max-width: none; width: 1080px; }
+body.raw .frame { aspect-ratio: auto; width: 1080px; height: 1350px; border-radius: 0; }
+body.raw .frame > .card { transform: none !important; }
+
+@media (prefers-reduced-motion: no-preference) {
+  [contenteditable] { transition: outline-color .15s; }
+}
+</style>
+
+<!-- ícones reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 48 48">
+      <path d="M24 3 L43 14 V30 C43 38 34 44 24 46 C14 44 5 38 5 30 V14 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M15 24 L22 31 L34 17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="verified" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#5EBCFC"/>
+      <path d="M7 12.5 L10.5 16 L17 9" fill="none" stroke="#0B1929" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24">
+      <path d="M4 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="chevrons" viewBox="0 0 120 80">
+      <path d="M10 5 L45 40 L10 75 M50 5 L85 40 L50 75 M90 5 L115 40 L90 75" fill="none" stroke="#5EBCFC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="bookmark" viewBox="0 0 24 24">
+      <path d="M6 3 H18 V21 L12 16 L6 21 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="send" viewBox="0 0 24 24">
+      <path d="M21 3 L10 14 M21 3 L14 21 L10 14 L3 10 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="chat" viewBox="0 0 24 24">
+      <path d="M4 5 H20 V16 H9 L4 20 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="intro">
+  <h1>Carrossel CAN · 8 cards</h1>
+  <p>Modelo de carrossel para o <b>@clube.do.valor.negocios</b> no tema escuro CAN, em 1080×1350 px (4:5). Clique em qualquer texto para editar. Os textos de exemplo seguem a estrutura de 8 elementos: gancho, contexto, dado, comparação, mecanismo, consequência, lição e CTA.</p>
+</header>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · CAPA / GANCHO -->
+  <section class="slot"><div class="slot-label">Card 1 · Capa / gancho</div><div class="frame"><article class="card">
+    <div class="top">
+      <div class="who"><div class="avatar"><svg style="color:#fff"><use href="#mark"/></svg></div>
+        <div><div class="name" contenteditable="true">Clube do Valor Negócios <svg><use href="#verified"/></svg></div><div class="handle" contenteditable="true">@clube.do.valor.negocios</div></div></div>
+    </div>
+    <div class="body">
+      <h2 class="h-xl" contenteditable="true">Subir o preço em 10% pode dar <span class="hl">mais lucro</span> do que ganhar 30% a mais de clientes.</h2>
+      <p class="lead" contenteditable="true">A conta que a maioria dos empresários nunca fez.</p>
+    </div>
+    <svg class="chev" viewBox="0 0 120 80"><use href="#chevrons"/></svg>
+    <div class="bottom"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="swipe">Arraste <svg><use href="#arrow"/></svg></div></div>
+  </article></div></section>
+
+  <!-- 2 · CONTEXTO -->
+  <section class="slot"><div class="slot-label">Card 2 · Confirmação + contexto</div><div class="frame"><article class="card">
+    <div class="top">
+      <div class="who"><div class="avatar"><svg style="color:#fff"><use href="#mark"/></svg></div>
+        <div><div class="name">Clube do Valor Negócios <svg><use href="#verified"/></svg></div><div class="handle">@clube.do.valor.negocios</div></div></div>
+    </div>
+    <div class="body prose" contenteditable="true">
+      <p>Quando o lucro aperta, quase todo empresário pensa a mesma coisa: preciso vender mais.</p>
+      <p>Mais anúncio. Mais vendedor. Mais desconto.</p>
+      <p>Mas existe uma alavanca mais rápida, e ela está <strong>no preço</strong>.</p>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+  </article></div></section>
+
+  <!-- 3 · DADO -->
+  <section class="slot"><div class="slot-label">Card 3 · Evidência / dado</div><div class="frame"><article class="card">
+    <div class="top"><div class="eyebrow" contenteditable="true">Faça a conta</div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+    <div class="body">
+      <div class="big-number" contenteditable="true">+50%</div>
+      <h2 class="h-md" contenteditable="true">de lucro com apenas <span class="hl">10% de aumento</span> no preço.</h2>
+      <div class="box">
+        <p class="small" contenteditable="true">Exemplo: produto de R$ 100, custo de R$ 80, margem de R$ 20. Com o preço em R$ 110, a margem vai para R$ 30.</p>
+      </div>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="swipe">3 / 8</div></div>
+  </article></div></section>
+
+  <!-- 4 · COMPARAÇÃO -->
+  <section class="slot"><div class="slot-label">Card 4 · Comparação</div><div class="frame"><article class="card">
+    <div class="top"><div class="eyebrow" contenteditable="true">A cada 100 vendas</div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+    <div class="body">
+      <h2 class="h-lg" contenteditable="true">Qual caminho deixa <span class="hl">mais dinheiro</span> no caixa?</h2>
+      <div class="base" contenteditable="true"><span>Lucro hoje</span><b>R$ 2.000</b></div>
+      <div class="compare">
+        <div class="box">
+          <div class="k" contenteditable="true">+30% de clientes</div>
+          <div class="v" contenteditable="true">R$ 2.600</div>
+          <div class="d" contenteditable="true">130 vendas × R$ 20 de margem</div>
+        </div>
+        <div class="box box-blue">
+          <div class="k" contenteditable="true">+10% no preço</div>
+          <div class="v gold" contenteditable="true">R$ 3.000</div>
+          <div class="d" contenteditable="true">100 vendas × R$ 30 de margem</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="swipe">4 / 8</div></div>
+  </article></div></section>
+
+  <!-- 5 · MECANISMO -->
+  <section class="slot"><div class="slot-label">Card 5 · Mecanismo / por quê</div><div class="frame"><article class="card">
+    <div class="top"><div class="eyebrow" contenteditable="true">Por que isso acontece</div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+    <div class="body">
+      <h2 class="h-lg" contenteditable="true">Preço e volume <span class="hl">não pesam igual</span> no lucro.</h2>
+      <div class="stack">
+        <div class="box"><div class="n">1</div><p contenteditable="true">O aumento de preço cai <strong>inteiro no lucro</strong>. O custo do produto não muda.</p></div>
+        <div class="box"><div class="n">2</div><p contenteditable="true">Mais clientes trazem <strong>mais custo junto</strong>: produto, atendimento, entrega.</p></div>
+        <div class="box"><div class="n">3</div><p contenteditable="true">Quanto menor a margem, <strong>mais cada real</strong> no preço pesa no resultado.</p></div>
+      </div>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div><div class="swipe">5 / 8</div></div>
+  </article></div></section>
+
+  <!-- 6 · CONSEQUÊNCIA -->
+  <section class="slot"><div class="slot-label">Card 6 · Consequência</div><div class="frame"><article class="card">
+    <div class="top"><div></div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+    <div class="body center">
+      <div class="rule"></div>
+      <h2 class="h-lg" contenteditable="true">Com o preço 10% maior, você poderia perder <span class="gold">1 em cada 3 clientes</span> e ainda lucrar o mesmo.</h2>
+      <p class="small" contenteditable="true">67 vendas × R$ 30 = R$ 2.010</p>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div><div class="swipe">6 / 8</div></div>
+  </article></div></section>
+
+  <!-- 7 · LIÇÃO -->
+  <section class="slot"><div class="slot-label">Card 7 · Lição / payoff</div><div class="frame"><article class="card">
+    <div class="top">
+      <div class="who"><div class="avatar"><svg style="color:#fff"><use href="#mark"/></svg></div>
+        <div><div class="name">Clube do Valor Negócios <svg><use href="#verified"/></svg></div><div class="handle">@clube.do.valor.negocios</div></div></div>
+    </div>
+    <div class="body">
+      <div class="eyebrow" contenteditable="true">A lição</div>
+      <h2 class="h-xl" contenteditable="true">Preço não é só um número. É <span class="hl">posicionamento</span>.</h2>
+      <p class="lead" contenteditable="true">Antes de correr atrás de mais clientes, revise quanto você cobra dos que já tem.</p>
+    </div>
+    <div class="bottom"><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+  </article></div></section>
+
+  <!-- 8 · CTA -->
+  <section class="slot"><div class="slot-label">Card 8 · CTA</div><div class="frame"><article class="card">
+    <div class="top"><div></div><div class="logo"><svg><use href="#mark"/></svg>clube do valor</div></div>
+    <div class="body">
+      <h2 class="h-lg" contenteditable="true">Manda para o sócio que acha que a solução é <span class="hl">sempre vender mais</span>.</h2>
+      <p class="lead" contenteditable="true">E salve este post para fazer a conta com os números da sua empresa.</p>
+      <div class="cta-row">
+        <span class="chip"><svg><use href="#send"/></svg><span contenteditable="true">Compartilhe</span></span>
+        <span class="chip"><svg><use href="#bookmark"/></svg><span contenteditable="true">Salve</span></span>
+        <span class="chip"><svg><use href="#chat"/></svg><span contenteditable="true">Comente PREÇO</span></span>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="who"><div class="avatar"><svg style="color:#fff"><use href="#mark"/></svg></div>
+        <div><div class="name">Clube do Valor Negócios <svg><use href="#verified"/></svg></div><div class="handle">@clube.do.valor.negocios</div></div></div>
+      <div class="swipe">8 / 8</div>
+    </div>
+  </article></div></section>
+
+</main>
+
+<script>
+  // Escala cada card de 1080px para a largura da moldura; #raw mantém tamanho real (usado na exportação PNG)
+  const raw = location.hash === '#raw';
+  if (raw) document.body.classList.add('raw');
+  function fit() {
+    if (raw) return;
+    document.querySelectorAll('.frame').forEach(f => {
+      f.querySelector('.card').style.transform = `scale(${f.clientWidth / 1080})`;
+    });
+  }
+  window.addEventListener('resize', fit);
+  new ResizeObserver(fit).observe(document.getElementById('deck'));
+  fit();
+</script>
