@@ -58,8 +58,6 @@ body {
 [contenteditable]:focus { outline: 2px dashed var(--ink-3); outline-offset: 6px; }
 
 .top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; min-height: 64px; }
-.mark { width: 66px; height: auto; display: block; }
-.lockup { height: 92px; width: auto; display: block; }
 .label { font-family: var(--mono); font-size: 26px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0; }
 
 .body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 44px; min-height: 0; position: relative; z-index: 1; }
@@ -116,7 +114,6 @@ h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; mar
 .checks > div:first-child { border-top: 2px solid var(--line); }
 .checks .box { width: 34px; height: 34px; border: 3px solid var(--ink); border-radius: 7px; flex: none; }
 
-.watermark { position: absolute; right: -170px; bottom: -60px; width: 620px; opacity: .05; z-index: 0; pointer-events: none; }
 
 .foot { display: flex; align-items: center; justify-content: space-between; margin-top: 56px; font-family: var(--mono); font-size: 26px; color: var(--ink-3); position: relative; z-index: 1; }
 
@@ -139,7 +136,6 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 1 · CAPA / GANCHO -->
   <section class="slot"><div class="slot-label">Card 1 · Capa / gancho</div><div class="frame"><article class="card">
-    <div class="top"><img class="lockup" src="assets/logo-negocios.png" alt="Clube do Valor Negócios"></div>
     <div class="body">
       <p class="label" contenteditable="true">Preço · A conta que ninguém faz</p>
       <h2 class="h-xl" contenteditable="true">Subir o preço em 10% pode dar mais lucro do que ganhar 30% a mais de clientes.</h2>
@@ -151,7 +147,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 2 · CONTEXTO -->
   <section class="slot"><div class="slot-label">Card 2 · Confirmação + contexto</div><div class="frame"><article class="card alt">
-    <div class="top"><p class="label" contenteditable="true">O reflexo</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">O reflexo</p></div>
     <div class="body">
       <h2 class="h-lg" contenteditable="true">Quando o lucro aperta, todo mundo pensa igual.</h2>
       <div class="prose" contenteditable="true">
@@ -164,8 +160,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 3 · DADO -->
   <section class="slot"><div class="slot-label">Card 3 · Evidência / dado</div><div class="frame"><article class="card">
-    <div class="top"><p class="label" contenteditable="true">O resultado que importa</p><img class="mark" src="assets/simbolo.png" alt=""></div>
-    <img class="watermark" src="assets/simbolo.png" alt="">
+    <div class="top"><p class="label" contenteditable="true">O resultado que importa</p></div>
     <div class="body">
       <div class="huge" contenteditable="true">+50%</div>
       <p class="lead" style="color:var(--ink);font-size:46px" contenteditable="true">de lucro com só 10% de aumento no preço.</p>
@@ -176,7 +171,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 4 · COMPARAÇÃO -->
   <section class="slot"><div class="slot-label">Card 4 · Comparação</div><div class="frame"><article class="card alt">
-    <div class="top"><p class="label" contenteditable="true">A cada 100 vendas</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">A cada 100 vendas</p></div>
     <div class="body">
       <h2 class="h-lg" contenteditable="true">Dois caminhos. Um deixa mais no caixa.</h2>
       <div class="cols">
@@ -202,7 +197,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 5 · MECANISMO -->
   <section class="slot"><div class="slot-label">Card 5 · Mecanismo / por quê</div><div class="frame"><article class="card">
-    <div class="top"><p class="label" contenteditable="true">Por que isso acontece</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">Por que isso acontece</p></div>
     <div class="body">
       <h2 class="h-lg" contenteditable="true">Preço e volume não pesam igual.</h2>
       <div class="numlist">
@@ -216,7 +211,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 6 · CONSEQUÊNCIA -->
   <section class="slot"><div class="slot-label">Card 6 · Consequência</div><div class="frame"><article class="card alt">
-    <div class="top"><p class="label" contenteditable="true">A margem de segurança</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">A margem de segurança</p></div>
     <div class="body">
       <h2 class="h-lg" contenteditable="true">Com o preço 10% maior, dá para perder 1 em cada 3 clientes e lucrar o mesmo.</h2>
       <div style="display:flex;flex-direction:column;gap:20px">
@@ -230,7 +225,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 7 · LIÇÃO -->
   <section class="slot"><div class="slot-label">Card 7 · Lição / payoff</div><div class="frame"><article class="card">
-    <div class="top"><p class="label" contenteditable="true">A lição</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">A lição</p></div>
     <div class="body">
       <h2 class="h-xl" contenteditable="true">Preço não é só um número. <span class="soft">É posicionamento.</span></h2>
       <div class="depara">
@@ -243,7 +238,7 @@ body.raw .frame > .card { transform: none !important; }
 
   <!-- 8 · CTA -->
   <section class="slot"><div class="slot-label">Card 8 · CTA</div><div class="frame"><article class="card alt">
-    <div class="top"><p class="label" contenteditable="true">Antes de sair</p><img class="mark" src="assets/simbolo.png" alt=""></div>
+    <div class="top"><p class="label" contenteditable="true">Antes de sair</p></div>
     <div class="body">
       <h2 class="h-lg" contenteditable="true">Faça essa conta com os números da sua empresa.</h2>
       <div class="checks">
@@ -252,7 +247,7 @@ body.raw .frame > .card { transform: none !important; }
         <div><span class="box"></span><span contenteditable="true">Comente qual caminho você escolheria</span></div>
       </div>
     </div>
-    <div class="top" style="align-items:center;margin-top:56px;min-height:0"><img class="lockup" style="height:84px" src="assets/logo-negocios.png" alt="Clube do Valor Negócios"><span class="label" style="font-size:24px">08</span></div>
+    <div class="foot"><span>Clube do Valor Negócios</span><span>08</span></div>
   </article></div></section>
 
 </main>

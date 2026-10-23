@@ -10,4 +10,4 @@ Estrutura: 1 capa/gancho · 2 contexto · 3 dado · 4 comparação · 5 mecanism
 
 Paleta: fundos #FFFFFF e #F3F3F5 alternados, texto #141518, cinzas #3E4148 / #6E717A / #C6C7CD, linhas #D6D7DB.
 Fontes: Inter Tight (títulos), Inter (corpo), IBM Plex Mono (rótulos e rodapé).
-`assets/`: logo e símbolo recortados do PDF do PAC (PNG transparente). Troque pelo arquivo vetorial oficial se tiver.
+Sem logos nos cards.
