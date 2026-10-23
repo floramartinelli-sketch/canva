@@ -16,6 +16,7 @@
   --ink-3: #6E717A;       /* rótulos mono, rodapé */
   --mute: #C6C7CD;        /* números grandes, barra secundária */
   --line: #D6D7DB;        /* linhas finas */
+  --accent: #1C55B1;      /* azul da marca: números e palavras-chave */
   --page: #E6E6EA;        /* fundo da página de visualização */
   --display: "Inter Tight", "Inter", Arial, Helvetica, sans-serif;
   --text: "Inter", Arial, Helvetica, sans-serif;
@@ -67,13 +68,14 @@ h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; mar
 .h-lg { font-size: 80px; line-height: 1.04; }
 .h-md { font-size: 60px; line-height: 1.1; letter-spacing: -0.03em; }
 .soft { color: var(--mute); }
+.hl { color: var(--accent); }
 .lead { font-size: 40px; line-height: 1.42; color: var(--ink-2); margin: 0; }
 .prose { display: flex; flex-direction: column; gap: 36px; }
 .prose p { font-size: 48px; line-height: 1.36; margin: 0; color: var(--ink-2); }
-.prose p strong { color: var(--ink); font-weight: 700; }
+.prose p strong { color: var(--accent); font-weight: 700; }
 .note { font-size: 30px; line-height: 1.45; color: var(--ink-3); margin: 0; }
 
-.huge { font-family: var(--display); font-size: 300px; line-height: .86; font-weight: 700; letter-spacing: -0.055em; color: var(--ink); margin-left: -10px; }
+.huge { font-family: var(--display); font-size: 300px; line-height: .86; font-weight: 700; letter-spacing: -0.055em; color: var(--accent); margin-left: -10px; }
 
 .hair { border: 0; border-top: 2px solid var(--line); margin: 0; width: 100%; }
 
@@ -89,17 +91,19 @@ h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; mar
 .col .t { font-family: var(--display); font-size: 40px; font-weight: 700; letter-spacing: -0.02em; }
 .col p { font-size: 30px; line-height: 1.42; color: var(--ink-2); margin: 0; }
 .col.dim .v { color: var(--mute); }
+.col.win { border-top: 4px solid var(--accent); padding-top: 24px; }
+.col.win .v { color: var(--accent); }
 
 /* lista numerada com número grande cinza */
 .numlist { border-top: 2px solid var(--ink-3); }
 .numlist > div { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 34px 0; border-bottom: 2px solid var(--line); }
-.numlist .n { font-family: var(--display); font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; color: var(--mute); }
+.numlist .n { font-family: var(--display); font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; color: var(--accent); }
 .numlist .t { font-family: var(--display); font-size: 42px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
 .numlist p { font-size: 32px; line-height: 1.4; color: var(--ink-2); margin: 0; }
 
 /* barra de progresso preta/cinza */
 .bar { display: flex; gap: 8px; height: 18px; }
-.bar i { display: block; background: var(--ink); }
+.bar i { display: block; background: var(--accent); }
 .bar i + i { background: var(--mute); }
 .bar-legend { display: flex; justify-content: space-between; }
 
@@ -112,7 +116,7 @@ h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; mar
 /* checklist (como "O que você leva") */
 .checks > div { display: flex; align-items: center; gap: 28px; padding: 28px 0; border-bottom: 2px solid var(--line); font-size: 38px; color: var(--ink-2); }
 .checks > div:first-child { border-top: 2px solid var(--line); }
-.checks .box { width: 34px; height: 34px; border: 3px solid var(--ink); border-radius: 7px; flex: none; }
+.checks .box { width: 34px; height: 34px; border: 3px solid var(--accent); border-radius: 7px; flex: none; }
 
 
 .foot { display: flex; align-items: center; justify-content: space-between; margin-top: 56px; font-family: var(--mono); font-size: 26px; color: var(--ink-3); position: relative; z-index: 1; }
@@ -138,7 +142,7 @@ body.raw .frame > .card { transform: none !important; }
   <section class="slot"><div class="slot-label">Card 1 · Capa / gancho</div><div class="frame"><article class="card">
     <div class="body">
       <p class="label" contenteditable="true">Preço · A conta que ninguém faz</p>
-      <h2 class="h-xl" contenteditable="true">Subir o preço em 10% pode dar mais lucro do que ganhar 30% a mais de clientes.</h2>
+      <h2 class="h-xl" contenteditable="true">Subir o preço em 10% pode dar <span class="hl">mais lucro</span> do que ganhar 30% a mais de clientes.</h2>
       <p class="lead" contenteditable="true">E a maioria dos empresários escolhe o caminho mais caro.</p>
     </div>
     <hr class="hair">
@@ -181,7 +185,7 @@ body.raw .frame > .card { transform: none !important; }
           <div class="v" contenteditable="true">R$ 2.600</div>
           <p contenteditable="true">130 vendas × R$ 20 de margem</p>
         </div>
-        <div class="col">
+        <div class="col win">
           <p class="label" style="font-size:22px" contenteditable="true">Caminho 02</p>
           <div class="t" contenteditable="true">+10% no preço</div>
           <div class="v" contenteditable="true">R$ 3.000</div>
@@ -213,10 +217,10 @@ body.raw .frame > .card { transform: none !important; }
   <section class="slot"><div class="slot-label">Card 6 · Consequência</div><div class="frame"><article class="card alt">
     <div class="top"><p class="label" contenteditable="true">A margem de segurança</p></div>
     <div class="body">
-      <h2 class="h-lg" contenteditable="true">Com o preço 10% maior, dá para perder 1 em cada 3 clientes e lucrar o mesmo.</h2>
+      <h2 class="h-lg" contenteditable="true">Com o preço 10% maior, dá para perder <span class="hl">1 em cada 3 clientes</span> e lucrar o mesmo.</h2>
       <div style="display:flex;flex-direction:column;gap:20px">
         <div class="bar"><i style="width:67%"></i><i style="width:33%"></i></div>
-        <div class="bar-legend"><p class="label" style="font-size:22px;color:var(--ink)" contenteditable="true">67 clientes ficam</p><p class="label" style="font-size:22px" contenteditable="true">33 saem</p></div>
+        <div class="bar-legend"><p class="label" style="font-size:22px;color:var(--accent)" contenteditable="true">67 clientes ficam</p><p class="label" style="font-size:22px" contenteditable="true">33 saem</p></div>
       </div>
       <p class="note" contenteditable="true">67 vendas × R$ 30 = R$ 2.010. O mesmo lucro de antes, com um terço a menos de trabalho.</p>
     </div>
@@ -227,7 +231,7 @@ body.raw .frame > .card { transform: none !important; }
   <section class="slot"><div class="slot-label">Card 7 · Lição / payoff</div><div class="frame"><article class="card">
     <div class="top"><p class="label" contenteditable="true">A lição</p></div>
     <div class="body">
-      <h2 class="h-xl" contenteditable="true">Preço não é só um número. <span class="soft">É posicionamento.</span></h2>
+      <h2 class="h-xl" contenteditable="true">Preço não é só um número. <span class="hl">É posicionamento.</span></h2>
       <div class="depara">
         <div><p class="label" style="font-size:22px">De</p><q contenteditable="true">Preciso vender mais.</q></div>
         <div><p class="label" style="font-size:22px">Para</p><q contenteditable="true">Preciso cobrar o que meu produto vale.</q></div>
@@ -240,7 +244,7 @@ body.raw .frame > .card { transform: none !important; }
   <section class="slot"><div class="slot-label">Card 8 · CTA</div><div class="frame"><article class="card alt">
     <div class="top"><p class="label" contenteditable="true">Antes de sair</p></div>
     <div class="body">
-      <h2 class="h-lg" contenteditable="true">Faça essa conta com os números da sua empresa.</h2>
+      <h2 class="h-lg" contenteditable="true">Faça essa conta com os números da <span class="hl">sua empresa</span>.</h2>
       <div class="checks">
         <div><span class="box"></span><span contenteditable="true">Salve para refazer a conta depois</span></div>
         <div><span class="box"></span><span contenteditable="true">Mande para o sócio que só pensa em vender mais</span></div>

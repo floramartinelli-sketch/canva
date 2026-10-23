@@ -8,6 +8,6 @@ Modelo de carrossel para o @clube.do.valor.negocios com fundo claro, no padrão 
 
 Estrutura: 1 capa/gancho · 2 contexto · 3 dado · 4 comparação · 5 mecanismo · 6 consequência · 7 lição · 8 CTA.
 
-Paleta: fundos #FFFFFF e #F3F3F5 alternados, texto #141518, cinzas #3E4148 / #6E717A / #C6C7CD, linhas #D6D7DB.
+Paleta: fundos #FFFFFF e #F3F3F5 alternados, texto #141518, cinzas #3E4148 / #6E717A / #C6C7CD, linhas #D6D7DB, azul da marca #1C55B1 para números e palavras-chave.
 Fontes: Inter Tight (títulos), Inter (corpo), IBM Plex Mono (rótulos e rodapé).
 Sem logos nos cards.
