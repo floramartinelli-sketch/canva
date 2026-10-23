@@ -1,6 +1,6 @@
 # Carrossel CAN · 8 cards
 
-Modelo de carrossel para o @clube.do.valor.negocios no tema escuro CAN da identidade visual do Clube do Valor.
+Modelo de carrossel para o @clube.do.valor.negocios com fundo claro, no padrão visual do material do PAC (Clube do Valor Negócios).
 
 - `index.html`: os 8 cards (1080×1350 px, 4:5). Clique em qualquer texto para editar.
 - `render.mjs`: exporta os cards como PNG em `png/` (`node carrossel-can/render.mjs`, requer playwright).
@@ -8,5 +8,6 @@ Modelo de carrossel para o @clube.do.valor.negocios no tema escuro CAN da identi
 
 Estrutura: 1 capa/gancho · 2 contexto · 3 dado · 4 comparação · 5 mecanismo · 6 consequência · 7 lição · 8 CTA.
 
-Paleta: fundo #0B1929 → #0E2A58, texto branco, destaque #5EBCFC, premium #F5D68D. Fonte Inter.
-O símbolo (escudo com check) é uma aproximação; troque pelo logo oficial em SVG/PNG.
+Paleta: fundos #FFFFFF e #F3F3F5 alternados, texto #141518, cinzas #3E4148 / #6E717A / #C6C7CD, linhas #D6D7DB.
+Fontes: Inter Tight (títulos), Inter (corpo), IBM Plex Mono (rótulos e rodapé).
+`assets/`: logo e símbolo recortados do PDF do PAC (PNG transparente). Troque pelo arquivo vetorial oficial se tiver.
